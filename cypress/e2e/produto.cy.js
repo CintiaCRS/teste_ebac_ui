@@ -9,12 +9,14 @@ describe('Funcionalidade página de compra de produtos', () => {
 
 
     it('Deve selecionar um produto da lista', () => {
-        cy.get('.product-block > .block-inner > .image > .product-image > .image-hover').first()
+        cy.get('.product-block > .block-inner > .image > .product-image > .image-hover').first().click()
         //.last()
         //.eq(3)
         
+        cy.get('#tab-title-description > a').should ('contain', 'Descrição')
         
-        .click()
+        
+    
 
 
         
