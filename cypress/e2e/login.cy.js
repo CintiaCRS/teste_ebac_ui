@@ -1,10 +1,12 @@
 /// <reference types="cypress" />
 
 
+const perfil = require ('../fixtures/perfil.json')
+
 context ('Funcionalidade login', ( ) => {
 
 beforeEach(() => {
-    cy.visit ('http://lojaebac.ebaconline.art.br/minha-conta/')
+    cy.visit ('minha-conta')
 
 });
 
@@ -23,6 +25,59 @@ cy.get('.woocommerce-form > .button') .click ()
 cy.get('.page-title') .should('contain', 'Minha conta')    
 cy.get('.woocommerce-MyAccount-content > :nth-child(2)') .should('contain', 'Olá')
 })
+
+
+it('Deve fazer login com sucesso - usando base de dados', () => {
+    cy.get ('#username').type (perfil.usuario)
+    cy.get ('#password').type (perfil.senha)
+    cy.get('.woocommerce-form > .button') .click ()
+    
+    cy.get('.page-title') .should('contain', 'Minha conta')    
+    cy.get('.woocommerce-MyAccount-content > :nth-child(2)') .should('contain', 'Olá')
+    })
+
+
+    it.only('Deve fazer login com sucesso - fixture', () => {
+        cy.fixture ('perfil').then (dados => {
+
+            cy.get ('#username').type (dados.usuario)
+            cy.get ('#password').type (dados.senha, {log: false})
+            cy.get('.woocommerce-form > .button') .click ()
+            
+            cy.get('.page-title') .should('contain', 'Minha conta')    
+            
+
+        })
+        
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    it('Deve fazer login com sucesso - usando base de dados', () => {
+    cy.get ('#username').type (perfil.usuario)
+    cy.get ('#password').type (perfil.senha)
+    cy.get('.woocommerce-form > .button') .click ()
+    
+    cy.get('.page-title') .should('contain', 'Minha conta')    
+    cy.get('.woocommerce-MyAccount-content > :nth-child(2)') .should('contain', 'Olá')
+    })
 
 
 it('Deve exibir mensangem de erro ao inserir usuário inválido', () => {
@@ -45,3 +100,5 @@ it('Deve exibir mensangem de senha inválida', () => {
 
 
 })
+
+
