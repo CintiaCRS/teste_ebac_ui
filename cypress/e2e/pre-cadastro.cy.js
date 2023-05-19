@@ -31,7 +31,34 @@ it('Deve cadastrar usuário com sucesso', () => {
 });
 
 
+it.only('Deve completar pré cadastro usando comandos customizados', () => {
 
+
+    let emailfake2 = faker.internet.email()
+   
+    cy.preCadastro(emailfake2, 'senha!@forte', 'Fábio', 'Araújo')
+
+    cy.get('.woocommerce-message').should ('contain', 'Detalhes da conta modificados com sucesso.')
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+});
 
 
 

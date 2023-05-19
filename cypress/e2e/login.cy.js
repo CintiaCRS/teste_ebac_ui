@@ -53,23 +53,6 @@ it('Deve fazer login com sucesso - usando base de dados', () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     it('Deve fazer login com sucesso - usando base de dados', () => {
     cy.get ('#username').type (perfil.usuario)
     cy.get ('#password').type (perfil.senha)

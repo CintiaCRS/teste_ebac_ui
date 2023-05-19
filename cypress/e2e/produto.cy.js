@@ -41,6 +41,27 @@ describe('Funcionalidade página de compra de produtos', () => {
 
 
 
+it('Deve adicionar produtos ao carrinho usando comando customizado', () => {
+    cy.addProdutos(3, "S", "Red")
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
 
 
